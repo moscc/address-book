@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="style.css">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Address book</title>
 
@@ -16,8 +17,8 @@
 
 <body>
   <h1>Contacts</h1>
-  <table id="contacts-table">
-    <tr id="contacts-head">
+  <table class="contacts-table">
+    <tr class="contacts-head">
       <th>ID</th>
       <th>Name</th>
       <th>Phone</th>
@@ -28,11 +29,9 @@
 
   <div class="contact-list"></div>
 
-  <button class="add-contact">Add Contact</button>
-  <button class="cancel hide">Cancel</button>
-  <button class="clear">Clear all contacts</button>
+  <button class="add-contact">Add New Contact</button>
 
-  <form id="contact-form">
+  <form action="#" class="new-contact-form hide">
     <div class="item text">
       <label>Name</label>
       <div class="field"><input type="text" name="name" /></div>
@@ -40,7 +39,7 @@
 
     <div class="item text">
       <label>Email</label>
-      <div class="field"><input type="text" name="email" />></div>
+      <div class="field"><input type="text" name="email" /></div>
     </div>
 
     <div class="item text">
@@ -58,17 +57,8 @@
       <div class="field"><input type="text" name="email" /></div>
     </div>
 
-    <div class="button-wrapper">
-      <div class="item button">
-          <div class="field"><input type="button" id="contacts-op-discard" value="Discard" /></div>
-      </div>
-
-      <div class="item button button-default">
-        <div class="field"><input type="submit" id="contacts-op-save" value="Save" /></div>
-      </div>
-    </div>
-    <input type="hidden" name="id_entry" value="0" />
-  </form>
+    <button class="save-contact">Save Contact</button>
+    <button class="cancel hide">Cancel</button>
 
   <script src="./dist/bundle.js"></script>
 

@@ -1,3 +1,4 @@
+/*
 const storage = window.localStorage
 const renderContacts = () => {
   let contacts = JSON.parse(window.localStorage.getItem('contacts'))
@@ -23,9 +24,8 @@ const renderContacts = () => {
     div.innerHTML = `<p>You have no contacts in your address book</p>`
   }
 }
+*/
 
-
-/*
 const renderContacts = () => {
   let contacts = JSON.parse(window.localStorage.getItem('contacts'))
   let div = document.querySelector('.contact-list')
@@ -49,7 +49,6 @@ const renderContacts = () => {
           div.innerHTML = '<p>You have no contacts in your address book</p>'
         }
   }
-*/
 
 document.addEventListener('DOMContentLoaded', () => {
   renderContacts()
@@ -58,6 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const addContactBtn = document.querySelector('.add-contact')
   const cancelBtn = document.querySelector('.cancel')
   const saveContactBtn = document.querySelector('.save-contact')
+  const contactTable = document.querySelector('.contacts-table')
   let contactList = document.querySelector('.contact-list')
 
   addContactBtn.addEventListener('click', () => {
@@ -65,6 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
     addContactForm.classList.remove('hide')
     addContactBtn.classList.add('hide')
     contactList.classList.add('hide')
+    contactTable.classList.add('hide')
   })
 
   cancelBtn.addEventListener('click', () => {
@@ -72,6 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
     addContactForm.classList.add('hide')
     cancelBtn.classList.add('hide')
     contactList.classList.remove('hide')
+    contactTable.classList.remove('hide')
   })
 
   addContactForm.addEventListener('submit', event => {

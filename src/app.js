@@ -1,3 +1,52 @@
+let Contacts = {
+  index: window.localStorage.getItem("contacts:index"),
+  $table: document.getElementById("contains-table"),
+  $form: document.getElementById("contacts-form"),
+  $button_save: document.getElementById("contacts-op-save"),
+  $button_discard: document.getElementById("contacts-op-discard"),
+
+  init: function() {
+    if (!Contacts.index) {
+      window.localStorage.setItem("Contacts:index", Contacts.index = 1);
+    }
+    Contacts.$form.reset();
+    Contacts.$button_discard.addEventListener("click", function(event) {
+            Contacts.$form.reset();
+            Contacts.$form.id_entry.value = 0;
+    }, true);
+    Contacts.$form.addEventListener("submit", function(event) {
+            var entry = {
+                id: parseInt(this.id_entry.value),
+                first_name: this.first_name.value,
+                last_name: this.last_name.value,
+                email: this.email.value
+            };
+            if (entry.id == 0) { // add
+                Contacts.storeAdd(entry);
+                Contacts.tableAdd(entry);
+            }
+            else { // edit
+                Contacts.storeEdit(entry);
+                Contacts.tableEdit(entry);
+            }
+
+            this.reset();
+            this.id_entry.value = 0;
+            event.preventDefault();
+        }, true);
+  },
+
+  storeAdd: function(entry) {},
+  storeEdit: function(entry) {},
+  storeRemove: function(entry) {},
+
+  tableAdd: function(entry) {}
+  tableEdit: function(entry) {}
+  tableRemove: function(entry) {}
+};
+Contacts.init();
+
+/*
 const storage = window.localStorage
 const renderContacts = () => {
   let contacts = JSON.parse(window.localStorage.getItem('contacts'))
@@ -23,6 +72,7 @@ const renderContacts = () => {
     div.innerHTML = `<p>You have no contacts in your address book</p>`
   }
 }
+*/
 
 
 /*
@@ -49,7 +99,7 @@ const renderContacts = () => {
           div.innerHTML = '<p>You have no contacts in your address book</p>'
         }
   }
-*/
+
 
 document.addEventListener('DOMContentLoaded', () => {
   renderContacts()

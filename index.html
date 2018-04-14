@@ -6,14 +6,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Address book</title>
+
+  <style>
+    .hide {
+      display: none;
+    }
+  </style>
 </head>
 
 <body>
   <h1>Contacts</h1>
   <button class="add-contact">Add Contact</button>
-  <div class="contact-list"></div>
-
-  <form action="#" class="new-contact-form">
+  <button class="cancel hide">Cancel</button>
+  
+  <form action="#" class="new-contact-form hide">
     <label for="name">Name</label>
     <input id="contact-name" name="name" type="text">
     <label for="email">Email</label>
@@ -26,8 +32,9 @@
     <textarea id="contact-notes" name="notes" type="text"></textarea>
     <label for="twitter">Twitter</label>
     <input id="contact-twitter" name="twitter" type="text">
-
     <input class="save-contact" type="submit" value="Save contact">
+
+    <div class="contact-list"></div>
   </form>
   <script src="./dist/bundle.js"></script>
 

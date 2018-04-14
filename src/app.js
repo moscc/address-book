@@ -1,7 +1,6 @@
 const storage = window.localStorage
 
 const renderContacts = () => {
-    // Read all the contacts from the storage
     const contacts = JSON.parse(storage.getItem('contacts'))
 
 let div = document.querySelector('.contact-list')
@@ -28,16 +27,24 @@ if(contacts) {
   }
 }
 
-const resetFormField = () => {
-  const contactForm = document.querySelector('.new-contact-form')
+document.addEventListener('DOMContentLoaded', () => {
+  renderContacts()
 
-  contactForm.elements.name.value = ''
-  contactForm.elements.email.value = ''
-  contactForm.elements.phone.value = ''
-  contactForm.elements.company.value = ''
-  contactForm.elements.notes.value = ''
-  contactForm.elements.twitter.value = ''
-}
+  const addContactForm = document.querySelector('.new-contact-form')
+  const addContactBtn = document.querySelector('.add-contact')
+  const cancelBtn = document.querySelector('.cancel')
+  const saveContactBtn = document.querySelector('.save-contact')
+
+  addContactBtn.addEventListener('click', () => {
+    cancelBtn.classList.remove('hide')
+    addContactForm.classList.remove('hide')
+    addContactBtn.classList.add('hide')
+  })
+  cancelBtn.addEventListener('click', () => {
+    addContactBtn.classList.remove('hide')
+    addContactForm.classList.add('hide')
+    cancelBtn.classList.add('hide')
+  })
 
 document.addEventListener('DOMContentLoaded', () => {
   renderContacts()
@@ -69,4 +76,5 @@ document.addEventListener('DOMContentLoaded', () => {
   renderContacts()
   resetFormField()
   })
+})
 })

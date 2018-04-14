@@ -1,31 +1,27 @@
 const storage = window.localStorage
-
 const renderContacts = () => {
-    const contacts = JSON.parse(storage.getItem('contacts'))
+  let contacts = JSON.parse(window.localStorage.getItem('contacts'))
+  let div = document.querySelector('.contact-list')
 
-let div = document.querySelector('.contact-list')
+  if(contacts) {
+    div.innerHTML = ''
+    const ul = document.createElement('ul')
 
-if(contacts) {
-  div.innerHTML = ''
-  // render the Contacts
-  const ul = document.createElement('ul')
+    contacts.forEach(contact => {
+      let li = document.createElement('li')
+      li.innerHTML = `
+        <span>${contact.name}</span>
+        <span>${contact.email}</span>
+        <span>${contact.phone}</span>
+        `
+        ul.appendChild(li)
+      })
 
-  contacts.forEach(contact => {
-    let li = document.createElement('li')
-
-  li.innerHTML = `
-    <span>${contact.name}</span>
-    <span>${contact.email}</span>
-    <span>${contact.phone}</span>
-    `
-    ul.appendChild(li)
-  })
-
-  div.appendChild(ul)
-} else {
-  div.innerHTML = '<p>You have no contacts in your address book</p>'
+      div.appendChild(ul)
+      } else {
+          div.innerHTML = '<p>You have no contacts in your address book</p>'
+        }
   }
-}
 
 document.addEventListener('DOMContentLoaded', () => {
   renderContacts()
@@ -34,37 +30,36 @@ document.addEventListener('DOMContentLoaded', () => {
   const addContactBtn = document.querySelector('.add-contact')
   const cancelBtn = document.querySelector('.cancel')
   const saveContactBtn = document.querySelector('.save-contact')
+  let contactList = document.querySelector('.contact-list')
 
   addContactBtn.addEventListener('click', () => {
     cancelBtn.classList.remove('hide')
     addContactForm.classList.remove('hide')
     addContactBtn.classList.add('hide')
+    contactList.classList.add('hide')
   })
+
   cancelBtn.addEventListener('click', () => {
     addContactBtn.classList.remove('hide')
     addContactForm.classList.add('hide')
     cancelBtn.classList.add('hide')
+    contactList.classList.remove('hide')
   })
 
-document.addEventListener('DOMContentLoaded', () => {
-  renderContacts()
-  const contactForm = document.querySelector('.new-contact-form')
-
-  contactForm.addEventListener('submit', event => {
+  addContactForm.addEventListener('submit', event => {
     event.preventDefault()
     const storage = window.localStorage
 
-  // Reads all the input fields and get their values
-  const { name, email, phone, company, notes, twitter } = contactForm.elements
+    const { name, email, phone, company, notes, twitter } = addContactForm.elements
 
-  const contact = {
-    name: name.value,
-    email: email.value,
-    phone: phone.value,
-    company: company.value,
-    notes: notes.value,
-    twitter: twitter.value,
-  }
+    const contact = {
+      name: name.value,
+      email: email.value,
+      phone: phone.value,
+      company: company.value,
+      notes: notes.value,
+      twitter: twitter.value,
+    }
 
   console.log(contact)
 
@@ -74,7 +69,5 @@ document.addEventListener('DOMContentLoaded', () => {
   // Saves input to our storage
   storage.setItem('contacts', JSON.stringify(contacts))
   renderContacts()
-  resetFormField()
   })
-})
 })

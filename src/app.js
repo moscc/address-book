@@ -50,9 +50,9 @@ document.addEventListener('DOMContentLoaded', () => {
     event.preventDefault()
     const storage = window.localStorage
 
-    const { name, email, phone, company, notes, twitter } = addContactForm.elements
+    let { name, email, phone, company, notes, twitter } = addContactForm.elements
 
-    const contact = {
+    let contact = {
       name: name.value,
       email: email.value,
       phone: phone.value,
@@ -61,13 +61,12 @@ document.addEventListener('DOMContentLoaded', () => {
       twitter: twitter.value,
     }
 
-  console.log(contact)
-
-  let contacts = JSON.parse(storage.getItem('contacts')) || []
-
-  contacts.push(contact)
-  // Saves input to our storage
-  storage.setItem('contacts', JSON.stringify(contacts))
-  renderContacts()
+  if (contact.name, contact.email, contact.phone) {
+    localStorage.setItem('contact', JSON.stringify(contact))
+    console.log(`Saving the following contact: ${JSON.stringify(contact)}`)
+    renderContacts()
+  } else {
+      console.log(`One or more fields are missing, please fill in all fields and try again!`)
+    }
   })
 })

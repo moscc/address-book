@@ -1,1 +1,86 @@
-!function(e){var t={};function n(o){if(t[o])return t[o].exports;var a=t[o]={i:o,l:!1,exports:{}};return e[o].call(a.exports,a,a.exports,n),a.l=!0,a.exports}n.m=e,n.c=t,n.d=function(e,t,o){n.o(e,t)||Object.defineProperty(e,t,{configurable:!1,enumerable:!0,get:o})},n.r=function(e){Object.defineProperty(e,"__esModule",{value:!0})},n.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return n.d(t,"a",t),t},n.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},n.p="",n(n.s=0)}([function(e,t,n){"use strict";window.localStorage;var o=function(){var e=JSON.parse(window.localStorage.getItem("contacts")),t=document.querySelector(".contact-list");if(e){t.innerHTML="";var n=document.createElement("ul");e.forEach(function(e){var t=document.createElement("li");t.innerHTML="\n        <span>"+e.name+"</span>\n        <span>"+e.email+"</span>\n        <span>"+e.phone+"</span>\n        ",n.appendChild(t)}),t.appendChild(n)}else t.innerHTML="<p>You have no contacts in your address book</p>"};document.addEventListener("DOMContentLoaded",function(){o();var e=document.querySelector(".new-contact-form"),t=document.querySelector(".add-contact"),n=document.querySelector(".cancel"),a=(document.querySelector(".save-contact"),document.querySelector(".contact-list"));t.addEventListener("click",function(){n.classList.remove("hide"),e.classList.remove("hide"),t.classList.add("hide"),a.classList.add("hide")}),n.addEventListener("click",function(){t.classList.remove("hide"),e.classList.add("hide"),n.classList.add("hide"),a.classList.remove("hide")}),e.addEventListener("submit",function(t){t.preventDefault();var n=window.localStorage,a=e.elements,c=a.name,r=a.email,s=a.phone,i=a.company,l=a.notes,u=a.twitter,d={name:c.value,email:r.value,phone:s.value,company:i.value,notes:l.value,twitter:u.value};console.log(d);var p=JSON.parse(n.getItem("contacts"))||[];p.push(d),n.setItem("contacts",JSON.stringify(p)),o()})})}]);
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, {
+/******/ 				configurable: false,
+/******/ 				enumerable: true,
+/******/ 				get: getter
+/******/ 			});
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/app.js");
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "./src/app.js":
+/*!********************!*\
+  !*** ./src/app.js ***!
+  \********************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nvar storage = window.localStorage;\nvar renderContacts = function renderContacts() {\n  var contacts = JSON.parse(window.localStorage.getItem('contacts'));\n  var div = document.querySelector('.contact-list');\n\n  if (contacts) {\n    div.innerHTML = '';\n    var ul = document.createElement('ul');\n\n    contacts.forEach(function (contact) {\n      var li = document.createElement('li');\n      li.innerHTML = '\\n        <span>' + contact.name + '</span>\\n        <span>' + contact.email + '</span>\\n        <span>' + contact.phone + '</span>\\n        ';\n      ul.appendChild(li);\n    });\n\n    div.appendChild(ul);\n  } else {\n    div.innerHTML = '<p>You have no contacts in your address book</p>';\n  }\n};\n\ndocument.addEventListener('DOMContentLoaded', function () {\n  renderContacts();\n\n  var addContactForm = document.querySelector('.new-contact-form');\n  var addContactBtn = document.querySelector('.add-contact');\n  var cancelBtn = document.querySelector('.cancel');\n  var saveContactBtn = document.querySelector('.save-contact');\n  var contactList = document.querySelector('.contact-list');\n\n  addContactBtn.addEventListener('click', function () {\n    cancelBtn.classList.remove('hide');\n    addContactForm.classList.remove('hide');\n    addContactBtn.classList.add('hide');\n    contactList.classList.add('hide');\n  });\n\n  cancelBtn.addEventListener('click', function () {\n    addContactBtn.classList.remove('hide');\n    addContactForm.classList.add('hide');\n    cancelBtn.classList.add('hide');\n    contactList.classList.remove('hide');\n  });\n\n  addContactForm.addEventListener('submit', function (event) {\n    event.preventDefault();\n    var storage = window.localStorage;\n\n    var _addContactForm$eleme = addContactForm.elements,\n        name = _addContactForm$eleme.name,\n        email = _addContactForm$eleme.email,\n        phone = _addContactForm$eleme.phone,\n        company = _addContactForm$eleme.company,\n        notes = _addContactForm$eleme.notes,\n        twitter = _addContactForm$eleme.twitter;\n\n\n    var contact = {\n      name: name.value,\n      email: email.value,\n      phone: phone.value,\n      company: company.value,\n      notes: notes.value,\n      twitter: twitter.value\n    };\n\n    if (contact.name, contact.email, contact.phone) {\n      localStorage.setItem('contact', JSON.stringify(contact));\n      console.log('Saving the following contact: ' + JSON.stringify(contact));\n      renderContacts();\n    } else {\n      console.log('One or more fields are missing, please fill in all fields and try again!');\n    }\n  });\n});\n\n//# sourceURL=webpack:///./src/app.js?");
+
+/***/ })
+
+/******/ });

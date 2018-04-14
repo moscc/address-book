@@ -2,6 +2,33 @@ const storage = window.localStorage
 const renderContacts = () => {
   let contacts = JSON.parse(window.localStorage.getItem('contacts'))
   let div = document.querySelector('.contact-list')
+  div.innerHTML = ''
+
+  if (contacts) {
+    let ul = document.createElement('ul')
+
+    let items = contacts.map(contact => {
+      let li = document.createElement('li')
+      li.innerHTML = `
+        <span>${ contact.name }</span>  |
+        <span>${ contact.email }</span> |
+        <span>${ contact.phone }</span>
+        `
+        return li
+    })
+
+    items.forEach(li => ul.appendChild(li))
+    div.appendChild(ul)
+  } else {
+    div.innerHTML = `<p>You have no contacts in your address book</p>`
+  }
+}
+
+
+/*
+const renderContacts = () => {
+  let contacts = JSON.parse(window.localStorage.getItem('contacts'))
+  let div = document.querySelector('.contact-list')
 
   if(contacts) {
     div.innerHTML = ''
@@ -22,6 +49,7 @@ const renderContacts = () => {
           div.innerHTML = '<p>You have no contacts in your address book</p>'
         }
   }
+*/
 
 document.addEventListener('DOMContentLoaded', () => {
   renderContacts()
@@ -48,11 +76,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   addContactForm.addEventListener('submit', event => {
     event.preventDefault()
-    const storage = window.localStorage
+    const localStorage = window.localStorage
 
     let { name, email, phone, company, notes, twitter } = addContactForm.elements
 
     let contact = {
+      id: Date.now(),
       name: name.value,
       email: email.value,
       phone: phone.value,
@@ -62,8 +91,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
   if (contact.name, contact.email, contact.phone) {
-    localStorage.setItem('contact', JSON.stringify(contact))
     console.log(`Saving the following contact: ${JSON.stringify(contact)}`)
+    contacts.push(contact)
+    localStorage.setItem('contacts', JSON.stringify(contacts))
     renderContacts()
   } else {
       console.log(`One or more fields are missing, please fill in all fields and try again!`)

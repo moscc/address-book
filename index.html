@@ -16,28 +16,60 @@
 
 <body>
   <h1>Contacts</h1>
+  <table id="contacts-table">
+    <tr id="contacts-head">
+      <th>ID</th>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Actions</th>
+    </tr>
+  </table>
+
+  <div class="contact-list"></div>
+
   <button class="add-contact">Add Contact</button>
   <button class="cancel hide">Cancel</button>
   <button class="clear">Clear all contacts</button>
 
-  <div class="contact-list"></div>
+  <form id="contact-form">
+    <div class="item text">
+      <label>Name</label>
+      <div class="field"><input type="text" name="name" /></div>
+    </div>
 
-  <form action="#" class="new-contact-form hide">
-    <label for="name">Name</label>
-    <input id="contact-name" name="name" type="text">
-    <label for="email">Email</label>
-    <input id="contact-email" name="email" type="email">
-    <label for="phone">Phone</label>
-    <input id="contact-phone" name="phone" type="text">
-    <label for="company">Company</label>
-    <input id="contact-company" name="company" type="text">
-    <label for="notes">Notes</label>
-    <textarea id="contact-notes" name="notes" type="text"></textarea>
-    <label for="twitter">Twitter</label>
-    <input id="contact-twitter" name="twitter" type="text">
-    <input class="save-contact" type="submit" value="Save contact">
+    <div class="item text">
+      <label>Email</label>
+      <div class="field"><input type="text" name="email" />></div>
+    </div>
 
+    <div class="item text">
+      <label>Phone</label>
+      <div class="field"><input type="text" name="phone" /></div>
+    </div>
+
+    <div class="item text">
+      <label>Company</label>
+      <div class="field"><input type="text" name="company" /></div>
+    </div>
+
+    <div class="item text">
+      <label>Twitter</label>
+      <div class="field"><input type="text" name="email" /></div>
+    </div>
+
+    <div class="button-wrapper">
+      <div class="item button">
+          <div class="field"><input type="button" id="contacts-op-discard" value="Discard" /></div>
+      </div>
+
+      <div class="item button button-default">
+        <div class="field"><input type="submit" id="contacts-op-save" value="Save" /></div>
+      </div>
+    </div>
+    <input type="hidden" name="id_entry" value="0" />
   </form>
+
   <script src="./dist/bundle.js"></script>
 
 

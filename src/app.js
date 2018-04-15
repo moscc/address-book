@@ -58,6 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const cancelBtn = document.querySelector('.cancel')
   const saveContactBtn = document.querySelector('.save-contact')
   const contactTable = document.querySelector('.contacts-table')
+  const saveContact = document.querySelector('.save-contact')
   let contactList = document.querySelector('.contact-list')
 
   addContactBtn.addEventListener('click', () => {
@@ -66,6 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
     addContactBtn.classList.add('hide')
     contactList.classList.add('hide')
     contactTable.classList.add('hide')
+    saveContact.classList.remove('hide')
   })
 
   cancelBtn.addEventListener('click', () => {
@@ -74,13 +76,14 @@ document.addEventListener('DOMContentLoaded', () => {
     cancelBtn.classList.add('hide')
     contactList.classList.remove('hide')
     contactTable.classList.remove('hide')
+    saveContact.classList.add('hide')
   })
 
   addContactForm.addEventListener('submit', event => {
     event.preventDefault()
     const localStorage = window.localStorage
 
-    let { name, email, phone, company, notes, twitter } = addContactForm.elements
+    let { name, email, phone, company, twitter } = addContactForm.elements
 
     let contact = {
       id: Date.now(),
@@ -88,7 +91,6 @@ document.addEventListener('DOMContentLoaded', () => {
       email: email.value,
       phone: phone.value,
       company: company.value,
-      notes: notes.value,
       twitter: twitter.value,
     }
 

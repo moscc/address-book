@@ -3,11 +3,16 @@ body {
 }
 
 input {
+  text-align: center;
   width: 100;
   padding: 12px 20px;
-  margin: 8px 0;
+  margin: 10px 8px;
   border: 2px solid lightblue;
   border-radius: 4px;
+}
+
+label {
+  font-size: 30px;
 }
 
 input[type=text] {

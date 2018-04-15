@@ -13,7 +13,6 @@ Scenario: Create a new contact
   And I fill in "Email" with "john@doe.com"
   And I fill in "Phone" with "0123456789"
   And I fill in "Company" with "Craft Academy"
-  And I fill in "Notes" with "A really awsome guy :-)"
   And I fill in "Twitter" with "johndoe"
   And I click "Save contact"
   Then I should have 1 contact in my address book
@@ -29,14 +28,12 @@ Scenario: User creates multiple contacts
   And I fill in "Email" with "john@doe.com"
   And I fill in "Phone" with "0123456789"
   And I fill in "Company" with "Craft Academy"
-  And I fill in "Notes" with "A really awsome guy :-)"
   And I fill in "Twitter" with "johndoe"
   And I click "Save contact"
   Then I fill in "Name" with "Jane Doe"
   And I fill in "Email" with "jane@doe.com"
   And I fill in "Phone" with "011112453"
   And I fill in "Company" with "Craft Academy"
-  And I fill in "Notes" with "A really awsome girl :-)"
   And I fill in "Twitter" with "janedoe"
   And I click "Save contact"
   Then I should have 2 contact in my address book

@@ -67,13 +67,13 @@ document.addEventListener('DOMContentLoaded', () => {
     addContactForm.reset()
 
   if (contact.name, contact.email, contact.phone) {
-    console.log(`Saving the following contact: ${JSON.stringify(contact)}`)
+    document.getElementById("message").innerHTML = "Contact successfully saved!"
     const contacts = JSON.parse(localStorage.getItem('contacts')) || []
     contacts.push(contact)
     localStorage.setItem('contacts', JSON.stringify(contacts))
     renderContacts()
   } else {
-      console.log(`One or more fields are missing, please fill in all fields and try again!`)
+      document.getElementById("message").innerHTML = "One or more fields are missing, please fill in all fields to save a contact!"
     }
   })
 })

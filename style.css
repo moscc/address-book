@@ -69,6 +69,7 @@ li:nth-child(even) {
 }
 
 button {
+    float: left;
     border-radius: 7px;
     background-color: lightgrey;
     font-weight: bold;

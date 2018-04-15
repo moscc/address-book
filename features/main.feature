@@ -48,3 +48,18 @@ Scenario: Toggle function
   Then I should see "Cancel"
   When I click "Cancel"
   Then I should see "You have no contacts in your address book"
+
+Scenario: Form validation
+  Given I visit the site
+  Then I should see "Add New Contact"
+  When I click "Add contact"
+  Then I fill in "Name" with "John Doe"
+  And I fill in "Email" with "john@doe.com"
+  And I click "Save contact"
+  Then I should see "One or more fields are missing, please fill in all fields to save a contact!"
+  Then I fill in "Name" with "John Doe"
+  And I fill in "Email" with "john@doe.com"
+  Then I fill in "Phone" with "011112453"
+  And I click "Save contact"
+  Then I should see "Contact successfully saved!"
+  Then I should have 1 contact in my address book

@@ -1,28 +1,3 @@
-/*
-const storage = window.localStorage
-const renderContacts = () => {
-  let contacts = JSON.parse(window.localStorage.getItem('contacts'))
-  let div = document.querySelector('.contact-list')
-  div.innerHTML = ''
-  if (contacts) {
-    let ul = document.createElement('ul')
-    let items = contacts.map(contact => {
-      let li = document.createElement('li')
-      li.innerHTML = `
-        <span>${ contact.name }</span>  |
-        <span>${ contact.email }</span> |
-        <span>${ contact.phone }</span>
-        `
-        return li
-    })
-    items.forEach(li => ul.appendChild(li))
-    div.appendChild(ul)
-  } else {
-    div.innerHTML = `<p>You have no contacts in your address book</p>`
-  }
-}
-*/
-
 const renderContacts = () => {
   let contacts = JSON.parse(window.localStorage.getItem('contacts'))
   let div = document.querySelector('.contact-list')
@@ -90,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     addContactForm.reset()
-    
+
   if (contact.name, contact.email, contact.phone) {
     console.log(`Saving the following contact: ${JSON.stringify(contact)}`)
     const contacts = JSON.parse(localStorage.getItem('contacts')) || []

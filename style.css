@@ -18,14 +18,6 @@ body { /* Whole body site */
   font-family: "Lucida Console", "Courier New", monospace;
 }
 
-input { /* input fields */
-  width: 100;
-  padding: 10px 20px;
-  margin: 1px 1px;
-  border: 2px solid lightgreen;
-  border-radius: 7px;
-}
-
 label { /* Headings for input fields */
   float: left;
   padding-right: 50px;
@@ -33,20 +25,27 @@ label { /* Headings for input fields */
   font-size: 20px;
 }
 
-input, label {
-    display:block;
+input { /* input fields */
+  padding: 7px 20px;
+  border: 2px solid black;
+  font-family: "Lucida Console", "Courier New", monospace;
+  border-radius: 7px;
+  margin: 15px 150px;
+  font-weight: bold;
 }
 
-input {
-  margin: 40px 20px;
+input, label { /* Headings at new-contact-page */
+    display:block;
 }
 
 input[type=text]:focus { /* Effect for input fields */
     width: 30%;
+    background-color: lightgreen;
 }
 
 input[type=email]:focus { /* Effect for input fields */
     width: 30%;
+    background-color: lightgreen;
 }
 
 th { /* Headings */
@@ -76,6 +75,6 @@ button {
     font-family: "Lucida Console", "Courier New", monospace;
     border: 2px solid black;
     padding: 16px 35px;
-    margin: 30px 100px;
+    margin: 30px 50px;
     cursor: pointer;
 }

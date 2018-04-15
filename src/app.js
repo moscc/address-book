@@ -34,8 +34,9 @@ const renderContacts = () => {
     contacts.forEach(contact => {
       let li = document.createElement('li')
       li.innerHTML = `
-        <span>${contact.name}</span>
-        <span>${contact.email}</span>
+        <span>${contact.id}</span> |
+        <span>${contact.name}</span> |
+        <span>${contact.email}</span> |
         <span>${contact.phone}</span>
         `
         ul.appendChild(li)
@@ -43,7 +44,7 @@ const renderContacts = () => {
 
       div.appendChild(ul)
       } else {
-          div.innerHTML = '<p>You have no contacts in your address book</p>'
+          div.innerHTML = '<p>You have no contacts in your address book <br>Let\'s add some!</br></p>'
         }
   }
 
@@ -88,6 +89,8 @@ document.addEventListener('DOMContentLoaded', () => {
       twitter: twitter.value,
     }
 
+    addContactForm.reset()
+    
   if (contact.name, contact.email, contact.phone) {
     console.log(`Saving the following contact: ${JSON.stringify(contact)}`)
     const contacts = JSON.parse(localStorage.getItem('contacts')) || []

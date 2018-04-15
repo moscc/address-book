@@ -2,47 +2,80 @@
   display: none;
 }
 
-body {
+p {
+  padding-left: 100px;
+  padding-top: 35px;
+  color: lightgreen;
+  font-weight: bold;
+}
+
+h1 {
+  padding-left: 100px;
+  padding-bottom: 20px;
+}
+
+body { /* Whole body site */
   font-family: "Lucida Console", "Courier New", monospace;
 }
 
-input {
-  text-align: center;
+input { /* input fields */
   width: 100;
-  padding: 12px 20px;
-  margin: 10px 8px;
-  border: 2px solid lightblue;
-  border-radius: 4px;
+  padding: 10px 20px;
+  margin: 1px 1px;
+  border: 2px solid lightgreen;
+  border-radius: 7px;
 }
 
-label {
-  font-size: 30px;
+label { /* Headings for input fields */
+  float: left;
+  padding-right: 50px;
+  font-weight: bold;
+  font-size: 20px;
 }
 
-input[type=text] {
-    -webkit-transition: width 2.9s ease-in-out;
-    transition: width 2.9s ease-in-out;
+input, label {
+    display:block;
 }
 
-input[type=text]:focus {
-    width: 20%;
+input {
+  margin: 40px 20px;
 }
 
-table {
-  margin: 30px 2px;
+input[type=text]:focus { /* Effect for input fields */
+    width: 30%;
 }
 
-th {
-  padding: 12px 50px;
+input[type=email]:focus { /* Effect for input fields */
+    width: 30%;
+}
+
+th { /* Headings */
+  padding-left: 100px;
   text-align: left;
 }
 
+li { /* Inside the contact list */
+  list-style-type: none;
+  width: 60%;
+  font-weight: bold;
+  padding: 10px;
+}
+
+li:nth-child(odd) {
+    background: lightgreen;
+}
+
+li:nth-child(even) {
+    background: white;
+}
+
 button {
-    background-color: lightblue;
-    border: none;
-    color: white;
-    padding: 16px 32px;
-    text-decoration: none;
-    margin: 4px 2px;
+    border-radius: 7px;
+    background-color: lightgrey;
+    font-weight: bold;
+    font-family: "Lucida Console", "Courier New", monospace;
+    border: 2px solid black;
+    padding: 16px 35px;
+    margin: 30px 100px;
     cursor: pointer;
 }

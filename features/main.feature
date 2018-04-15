@@ -40,3 +40,11 @@ Scenario: User creates multiple contacts
   And I should see "John Doe"
   And I should see "Jane Doe"
   And I should not see "You have no contacts in your address book"
+
+Scenario: Toggle function
+  Given I visit the site
+  Then I should see "Add New Contact"
+  When I click "Add contact"
+  Then I should see "Cancel"
+  When I click "Cancel"
+  Then I should see "You have no contacts in your address book"

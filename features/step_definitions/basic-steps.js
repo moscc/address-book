@@ -20,9 +20,7 @@ Then('I fill in {string} with {string}', async function(field, content) {
   return await this.fillFormField(field.toLowerCase(), content)
 })
 
-Then('I should have {int} contact in my address book', async function(
-  contactCount
-) {
+Then('I should have {int} contact in my address book', async function(contactCount) {
   return await this.checkContactStorageCount(contactCount)
 })
 

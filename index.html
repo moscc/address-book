@@ -29,6 +29,9 @@
 
   <div class="contact-list"></div>
 
+  <button class="add-contact">Add New Contact</button>
+  <button class="cancel hide">Cancel</button>
+
   <form action="#" class="new-contact-form hide">
       <label for="name">Name</label>
       <input id="contact-name" name="name" type="text">
@@ -38,13 +41,12 @@
       <input id="contact-phone" name="phone" type="text">
       <label for="company">Company</label>
       <input id="contact-company" name="company" type="text">
+      <label for="notes">Notes</label>
+      <textarea id="contact-notes" name="notes" type="text"></textarea>
       <label for="twitter">Twitter</label>
       <input id="contact-twitter" name="twitter" type="text">
-      <button class="save-contact hide" type="submit" value="Save contact">Save Contact</button>
+      <button class="save-contact" type="submit" value="Save contact">Save Contact</button>
     </form>
-
-    <button class="add-contact">Add New Contact</button>
-    <button class="cancel hide">Cancel</button>
 
   <script src="./dist/bundle.js"></script>
 
